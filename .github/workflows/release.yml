@@ -86,20 +86,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: Windows Tiles x64 MSVC
-            artifact: windows-tiles-x64-msvc
-            arch: x64
-            os: windows-2019
+          - name: Linux Tiles Sounds x64
+            os: ubuntu-20.04
             mxe: none
-            ext: zip
-            content: application/zip
-          - name: Android x64
-            os: ubuntu-latest
-            mxe: none
-            android: arm64
-            artifact: android-x64
-            ext: apk
-            content: application/apk
+            android: none
+            tiles: 1
+            sound: 1
+            artifact: linux-tiles-sounds-x64
+            ext: tar.gz
+            content: application/gzip
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
     env:
